@@ -1,0 +1,114 @@
+/* Основные стили для страницы */
+html, /* Установка фонового изображения для всей страницы */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/background.webp');
+    background-size: cover; /* Изображение будет подстраиваться под размер экрана */
+    background-position: center; /* Центрирование изображения */
+    background-repeat: no-repeat; /* Изображение не будет повторяться */
+    background-attachment: fixed; /* Фон остается на месте при прокрутке */
+}
+
+
+/* Контейнер для центрирования элементов по вертикали */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 100px); /* Оставляем место для футера */
+    text-align: center;
+}
+
+/* Заголовок Rice по центру сверху */
+header h1 {
+    font-size: 5rem;
+    background: linear-gradient(90deg, #FAD0C4, #FFD1FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Great Vibes', cursive;
+    margin-top: 0;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Кнопка совпадает по цвету с градиентом заголовка */
+.hello-btn {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #FAD0C4, #FFD1FF);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Отступ между кнопкой и заголовком */
+}
+
+.hello-btn:hover {
+    background: linear-gradient(90deg, #FFD1FF, #FAD0C4);
+}
+
+/* Блок с радио-кнопками, пастельный цвет */
+.radio-container {
+    display: none;
+    margin-top: 20px;
+    background-color: #ffe4e1; /* Пастельный цвет */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group {
+    border: 2px solid #FAD0C4;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    background-color: #fff; /* Непрозрачный блок */
+}
+
+/* Поле для итоговой цены */
+.total-price {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    background-color: #ffe4e1; /* Пастельный цвет */
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для футера */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #FFD1FF;
+}

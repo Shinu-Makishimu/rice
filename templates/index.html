@@ -9,66 +9,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Основной контейнер для центрирования элементов -->
     <div class="container">
         <header>
             <h1>Rice</h1>
         </header>
 
-        <!-- Кнопка для показа радио-кнопок -->
-        <button class="hello-btn" onclick="showRadioButtons()">Hello World</button>
+        <!-- Кнопка для показа всплывающего окна -->
+        <button class="hello-btn" onclick="openPopup()">Hello World</button>
 
-        <!-- Блок с радио-кнопками и ценами, скрыт по умолчанию -->
-        <div id="radio-container" class="radio-container">
-            <div class="radio-group">
-                <label><input type="radio" name="group1" value="10" onchange="calculateTotal()"> Option 1 - $10</label>
-                <label><input type="radio" name="group1" value="20" onchange="calculateTotal()"> Option 2 - $20</label>
-            </div>
-            <div class="radio-group">
-                <label><input type="radio" name="group2" value="15" onchange="calculateTotal()"> Option 3 - $15</label>
-                <label><input type="radio" name="group2" value="25" onchange="calculateTotal()"> Option 4 - $25</label>
-                <label><input type="radio" name="group2" value="30" onchange="calculateTotal()"> Option 7 - $30</label>
-            </div>
-            <div class="radio-group">
-                <label><input type="radio" name="group3" value="30" onchange="calculateTotal()"> Option 5 - $30</label>
-                <label><input type="radio" name="group3" value="12" onchange="calculateTotal()"> Option 6 - $12</label>
-                <label><input type="radio" name="group3" value="40" onchange="calculateTotal()"> Option 8 - $40</label>
-                <label><input type="radio" name="group3" value="50" onchange="calculateTotal()"> Option 9 - $50</label>
-            </div>
-        </div>
+        <!-- Всплывающее окно с радио-кнопками -->
+        <div id="popup" class="popup-container">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h2>Выберите параметры</h2>
 
-        <!-- Поле для отображения итоговой цены -->
-        <div class="total-price">
-            <p>Итоговая цена: <span id="total-price">$0</span></p>
+                <div class="radio-group">
+                    <h3>Группа 1</h3>
+                    <label>Option 1 - $10 <input type="radio" name="group1" value="10" onchange="calculateTotal()"></label>
+                    <label>Option 2 - $20 <input type="radio" name="group1" value="20" onchange="calculateTotal()"></label>
+                </div>
+
+                <div class="radio-group">
+                    <h3>Группа 2</h3>
+                    <label>Option 3 - $15 <input type="radio" name="group2" value="15" onchange="calculateTotal()"></label>
+                    <label>Option 4 - $25 <input type="radio" name="group2" value="25" onchange="calculateTotal()"></label>
+                </div>
+
+                <div class="radio-group">
+                    <h3>Группа 3</h3>
+                    <label>Option 5 - $30 <input type="radio" name="group3" value="30" onchange="calculateTotal()"></label>
+                    <label>Option 6 - $40 <input type="radio" name="group3" value="40" onchange="calculateTotal()"></label>
+                </div>
+
+                <!-- Итоговая сумма -->
+                <div class="total-price">
+                    <p>Итоговая цена: <span id="total-price">$0</span></p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Социальные ссылки -->
     <footer>
         <div class="social-links">
-            <a href="https://www.google.com" target="_blank">Instagram</a>
-            <a href="https://www.google.com" target="_blank">Telegram</a>
-            <a href="https://www.google.com" target="_blank">VK</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.telegram.com" target="_blank">Telegram</a>
+            <a href="https://www.vk.com" target="_blank">VK</a>
         </div>
     </footer>
 
     <script>
-        // Функция для отображения блока с радио-кнопками
-        function showRadioButtons() {
-            document.getElementById("radio-container").style.display = "block";
+        // Открыть всплывающее окно
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
         }
 
-        // Функция для пересчета итоговой суммы
+        // Закрыть всплывающее окно
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        // Пересчет итоговой суммы
         function calculateTotal() {
             let total = 0;
             const radioButtons = document.querySelectorAll('input[type="radio"]:checked');
-
             radioButtons.forEach(function(radioButton) {
                 total += parseInt(radioButton.value);
             });
-
-            // Обновление отображения цены
             document.getElementById("total-price").textContent = "$" + total;
         }
     </script>
 </body>
 </html>
+
